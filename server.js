@@ -1,11 +1,11 @@
 const { ApolloServer, gql } = require('apollo-server');
 const fs = require("fs")
-
+const mocks = require('./mocks.js')
 const schema = fs.readFileSync("./schema.graphql", 'utf8')
 
 const server = new ApolloServer({
   typeDefs: schema,
-  mocks: true,
+  mocks: mocks,
 });
 
 const port = process.env.SERVER_PORT || 3005
